@@ -1,7 +1,8 @@
-FROM ubuntu:18.04
-FROM rocker/tidyverse:4.2.1
+FROM ubuntu:24.04
+FROM rocker/tidyverse:4.4.2
 
-MAINTAINER jon.brate@fhi.no
+LABEL org.opencontainers.image.authors="jon.brate@fhi.no"
 
-RUN sudo R -e "install.packages("seqinr")"
-
+# Install R packages
+RUN install2.r --error \
+    seqinr
